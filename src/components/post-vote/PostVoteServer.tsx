@@ -43,7 +43,7 @@ const PostVoteServer = async ({
       postId={postId}
       initialVotesAmt={_votesAmt}
       initialVote={_currentVote}
-      className="flex flex-row md:flex-col"
+      className="flex flex-col sm:flex-row"
     />
   );
 };
