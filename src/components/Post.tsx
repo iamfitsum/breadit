@@ -28,14 +28,15 @@ const Post = ({
   const pRef = useRef<HTMLDivElement>(null);
   return (
     <div className="rounded-md bg-white shadow">
-      <div className="px-6 py-4 flex md:flex-row flex-col justify-between">
+      <div className="px-6 py-4 flex justify-between">
         <PostVoteClient
           postId={post.id}
           initialVote={currentVote?.type}
           initialVotesAmt={votesAmt}
+          className="flex flex-col"
         />
 
-        <div className="md:w-0 flex-1">
+        <div className="w-0 flex-1">
           <div className="max-h-40 mt-1 text-xs text-gray-500">
             {subredditName ? (
               <>

@@ -16,9 +16,10 @@ type Props = {
   postId: string;
   initialVotesAmt: number;
   initialVote?: VoteType | null;
+  className?: React.HtmlHTMLAttributes<HTMLDivElement>["className"];
 };
 
-const PostVoteClient = ({ postId, initialVotesAmt, initialVote }: Props) => {
+const PostVoteClient = ({ postId, initialVotesAmt, initialVote, className }: Props) => {
   const { loginToast } = useCustomToast();
   const [votesAmt, setVotesAmt] = useState<number>(initialVotesAmt);
   const [currentVote, setCurrentVote] = useState(initialVote);
@@ -69,7 +70,7 @@ const PostVoteClient = ({ postId, initialVotesAmt, initialVote }: Props) => {
   });
 
   return (
-    <div className="flex sm:flex-col gap-4 sm:gap-0 pr-6 sm:w-20 pb-4 sm:pb-0 justify-center">
+    <div className={cn("gap-4 sm:gap-0 pr-6 sm:w-20 pb-4 sm:pb-0",className)}>
       <Button
         onClick={() => vote("UP")}
         size="sm"
