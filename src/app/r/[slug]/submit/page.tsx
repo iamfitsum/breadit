@@ -4,13 +4,11 @@ import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
 const page = async ({ params }: Props) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   const subreddit = await db.subreddit.findFirst({
     where: {
@@ -34,7 +32,7 @@ const page = async ({ params }: Props) => {
       </div>
 
       {/* form */}
-      <Editor subredditId={subreddit.id}/>
+      <Editor subredditId={subreddit.id} />
       <div className="w-full flex justify-end">
         <Button className="w-full" type="submit" form="subreddit-post-form">Post</Button>
       </div>
