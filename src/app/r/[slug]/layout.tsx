@@ -9,12 +9,12 @@ import ToFeedButton from "@/components/ToFeedButton";
 
 type Props = {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 const Layout = async ({ children, params }: Props) => {
   const session = await getAuthSession();
-  const { slug } = params;
+  const { slug } = await params;
 
   const subreddit = await db.subreddit.findFirst({
     where: {
