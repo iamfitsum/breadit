@@ -177,7 +177,7 @@ importers:
         specifier: ^4.0.0
         version: 4.1.3
       zod:
-        specifier: ^3.21.4
+        specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
       '@types/lodash.debounce':
