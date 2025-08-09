@@ -6,13 +6,11 @@ import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 
 type Props = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 };
 
 const page = async ({ params }: Props) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   const session = await getAuthSession();
 
